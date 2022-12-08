@@ -1,0 +1,27 @@
+{
+  "name": "custom-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "setYarn2": "npm install -g yarn && yarn set version berry && yarn install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "express-async-handler": "latest",
+    "helmet": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}

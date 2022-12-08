@@ -1,0 +1,14 @@
+node_modules
+package-lock.json
+.env
+.vscode
+
+# yarn
+.yarn
+yarn.lock
+/.yarn/
+/.yarn
+.yarnrc.yml
+.pnp.cjs
+.pnp.loader.mjs
+.pnp.*
