@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import cssInWeb from "css-in-web";
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 
@@ -8,6 +9,7 @@ const Container = styled.div`
 `
 
 function App() {
+  cssInWeb({ url: "http://localhost:9000/" });
   return (
     <Container>
       <Routes>

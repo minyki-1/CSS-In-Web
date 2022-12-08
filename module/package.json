@@ -1,15 +1,14 @@
 {
   "name": "css-in-web",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.5",
+  "description": "CSS-in-Web Technology Framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "css-in-web"
+  ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^18.2.0"
-  }
+  "license": "ISC"
 }

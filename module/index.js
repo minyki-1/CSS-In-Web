@@ -1,18 +1,30 @@
-import { useEffect, useState } from "react"
+const ciwInfo = { id: null };
 
-export default function CssInWeb({ children, url }) {
-  const [cssText, setCssText] = useState();
-  useEffect(() => {
-    if (url) {
-      fetch(url)
-        .then((res) => res.json())
-        .then((result) => setCssText(result));
-    }
-  }, []);
-  return (
-    <>
-      <style>{cssText}</style>
-      {children}
-    </>
-  )
+const makeRandomId = () => {
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+  let id = '';
+  for (let i = 0; i < 8; i++) {
+    const randomNum = Math.floor(Math.random() * chars.length);
+    id += chars.substring(randomNum, randomNum + 1);
+  }
+  ciwInfo.id = id;
+}
+
+export default function CssInWeb({ url }) {
+  if (!url) {
+    console.error("Url Argument is undefined.");
+    return;
+  }
+  if (ciwInfo.id) return;
+  try {
+    makeRandomId();
+    fetch(url)
+      .then(res => res.json())
+      .then(result => {
+        document.body.children[0]
+          .insertAdjacentHTML("beforebegin", `<style id="css-in-web_${ciwInfo.id}">${result}</style>`);
+      });
+  } catch (err) {
+    console.error(err);
+  }
 }
