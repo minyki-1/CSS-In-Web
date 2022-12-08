@@ -1,6 +1,6 @@
 {
   "name": "css-in-web",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "CSS-in-Web Technology Framework",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,6 @@
     "css-in-web"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }

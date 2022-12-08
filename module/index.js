@@ -8,21 +8,25 @@ const makeRandomId = () => {
     id += chars.substring(randomNum, randomNum + 1);
   }
   ciwInfo.id = id;
+  return id;
 }
 
-export default function CssInWeb({ url }) {
+export default function cssInWeb({ url }) {
   if (!url) {
-    console.error("Url Argument is undefined.");
+    console.error("url argument is undefined.");
     return;
   }
   if (ciwInfo.id) return;
+  if (typeof window !== 'object') {
+    console.error("Document could not be found. Please check if the website is SSR.");
+    return;
+  }
   try {
-    makeRandomId();
     fetch(url)
       .then(res => res.json())
       .then(result => {
         document.body.children[0]
-          .insertAdjacentHTML("beforebegin", `<style id="css-in-web_${ciwInfo.id}">${result}</style>`);
+          .insertAdjacentHTML("beforebegin", `<style id="css-in-web_${makeRandomId()}">${result}</style>`);
       });
   } catch (err) {
     console.error(err);
