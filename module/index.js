@@ -13,14 +13,11 @@ const makeRandomId = () => {
 
 export default function cssInWeb({ url }) {
   if (!url) {
-    console.error("url argument is undefined.");
+    console.error("URL argument is undefined.");
     return;
   }
   if (ciwInfo.id) return;
-  if (typeof window !== 'object') {
-    console.error("Document could not be found. Please check if the website is SSR.");
-    return;
-  }
+  if (typeof window !== 'object') return;
   try {
     fetch(url)
       .then(res => res.json())
