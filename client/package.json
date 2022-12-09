@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "css-in-web": "^1.0.5",
+    "css-in-web": "^1.0.9",
     "react": "latest",
     "react-dom": "latest",
     "react-router": "latest",

@@ -17,7 +17,7 @@
   "dependencies": {
     "@next/font": "latest",
     "babel-plugin-styled-components": "latest",
-    "css-in-web": "^1.0.9",
+    "css-in-web": "^1.0.14",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

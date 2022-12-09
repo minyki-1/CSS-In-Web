@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import cssInWeb from 'css-in-web';
 export default function Sample() {
-  cssInWeb({ url: "http://localhost:9000/" });
   return (
     <Container>
       <h1>Sample Page</h1>
