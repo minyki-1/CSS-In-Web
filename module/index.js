@@ -1,8 +1,4 @@
-export default function cssInWeb({ url }) {
-  if (!url) {
-    console.error("URL argument is undefined.");
-    return;
-  }
+export function connectCIW({ url }) {
   if (typeof window !== 'object') return;
   const cssStorage = JSON.parse(sessionStorage.getItem("@CssInWeb"));
   try {
@@ -26,5 +22,11 @@ export default function cssInWeb({ url }) {
         if (isChange) document.body.children[0].insertAdjacentHTML("beforebegin", `<style id="@CssInWeb">${result}</style>`);
         sessionStorage.setItem("@CssInWeb", JSON.stringify(result));
       });
+  } catch (err) { console.error(err); }
+}
+
+export async function serverCIW({ url }) {
+  try {
+    return await fetch(url).then(res => res.json());
   } catch (err) { console.error(err); }
 }

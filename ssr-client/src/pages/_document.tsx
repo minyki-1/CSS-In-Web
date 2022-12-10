@@ -1,5 +1,6 @@
 import Document, { DocumentContext, DocumentInitialProps, Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { serverCIW } from "css-in-web";
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -7,7 +8,7 @@ export default class MyDocument extends Document {
   ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
-
+    const ciwStyle = await serverCIW({ url: "http://localhost:9000" });
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -22,6 +23,7 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            <style>{ciwStyle}</style>
           </>,
         ],
       };

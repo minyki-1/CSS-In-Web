@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+const fs = require('fs');
 // const sampleData = require("../../../models/[name]Model");
 
 const setData = asyncHandler(async (req, res) => {
@@ -13,7 +14,7 @@ const setData = asyncHandler(async (req, res) => {
 });
 
 const getDatas = asyncHandler(async (req, res) => {
-  // const datas = await sampleData.find();
+  
   res.status(200).json("getDatas");
 });
 
