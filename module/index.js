@@ -1,26 +1,27 @@
+const insertStyle = (css) => {
+  const style = document.createElement("style");
+  style.textContent = css;
+  style.id = "@CssInWeb";
+  document.body.prepend(style);
+}
+
 export function connectCIW({ url }) {
   if (typeof window !== 'object') return;
-  const cssStorage = JSON.parse(sessionStorage.getItem("@CssInWeb"));
+  const cssStorage = sessionStorage.getItem("@CssInWeb");
   try {
-    if (cssStorage && !document.getElementById("@CssInWeb")) {
-      const style = `<style id="@CssInWeb">${cssStorage}</style>`;
-      document.body.children[0]
-        .insertAdjacentHTML("beforebegin", style);
-    }
+    if (cssStorage && !document.getElementById("@CssInWeb")) insertStyle(cssStorage);
   } catch (err) { console.error(err); }
   try {
     fetch(url)
       .then(res => res.json())
       .then(result => {
-        let isChange = false;
         if (!document.getElementById("@CssInWeb")) {
-          isChange = true;
+          insertStyle(result);
         } else if (result !== cssStorage) {
           document.getElementById("@CssInWeb").remove();
-          isChange = true;
+          insertStyle(result);
         }
-        if (isChange) document.body.children[0].insertAdjacentHTML("beforebegin", `<style id="@CssInWeb">${result}</style>`);
-        sessionStorage.setItem("@CssInWeb", JSON.stringify(result));
+        sessionStorage.setItem("@CssInWeb", result);
       });
   } catch (err) { console.error(err); }
 }

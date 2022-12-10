@@ -1,7 +1,8 @@
 import '../globals.css'
 import { AppProps } from 'next/app'
 import { Inter } from '@next/font/google'
-import { connectCIW } from 'css-in-web';
+import { serverCIW } from "css-in-web";
+// import { connectCIW } from '../../../module/index';
 const font = Inter();
 
 export default function App({ Component, pageProps }: AppProps) {
