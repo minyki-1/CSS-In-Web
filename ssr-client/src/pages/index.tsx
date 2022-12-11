@@ -5,6 +5,7 @@ export default function Home() {
     <Container>
       <h1>My Next WebApp</h1>
       <SvgHeart width="24" height="24" fill="white" />
+      <div className='test'>12345</div>
     </Container>
   )
 }
