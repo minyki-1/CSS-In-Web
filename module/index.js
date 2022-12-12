@@ -15,12 +15,9 @@ export function connectCIW({ url }) {
     fetch(url)
       .then(res => res.json())
       .then(result => {
-        if (!document.getElementById("@CssInWeb")) {
-          insertStyle(result);
-        } else if (result !== cssStorage) {
-          document.getElementById("@CssInWeb").remove();
-          insertStyle(result);
-        }
+        const styleElem = document.getElementById("@CssInWeb");
+        if (!styleElem) insertStyle(result);
+        else if (result !== cssStorage) styleElem.textContent = result;
         sessionStorage.setItem("@CssInWeb", result);
       });
   } catch (err) { console.error(err); }
