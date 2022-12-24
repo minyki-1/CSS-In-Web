@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
   ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
-    const ciwStyle = await serverCIW({ url: "http://localhost:9000" });
+    const ciwStyle = await serverCIW({ url: "http://127.0.0.1:5000/style/63a461c06fa52d116d50f14c" });
     try {
       ctx.renderPage = () =>
         originalRenderPage({
